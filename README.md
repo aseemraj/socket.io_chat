@@ -1,23 +1,23 @@
-Chat Room
-==============
-=======
-#Socket.io Chat:
-A basic chat application using node and [socket.io](http://socket.io/)
+#Chat Room:
+A chat application built on nodejs.
 
 #Requirements:
 * [Node.js](http://nodejs.org)
 * [Express](http://expressjs.com/)
 * [Socket.io](http://socket.io/)
+* [Redis](http://redis.io/)
 
 #Installing Requirements:
 ```
-$ npm install express
-$ npm install socket.io
+$ npm install
 ```
-
-To make the http server listen on port 3000, cd to the directory and do:
+Start the Redis Server:
 ```
-$ node index.js
+$ redis-server
+```
+Make the http server listen on port 3000:
+```
+$ cd path/to/directory
+$ node server.js
 ```
 ==============
->>>>>>> 01d1b0d28a8c064124b7b0ef349f6a6ad5e507e8
