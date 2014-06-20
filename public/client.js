@@ -18,6 +18,7 @@ $(document).ready(function() {
     });
     
     server.on('add chatter', function(name){
+        $("#chatters li").remove( ":contains('"+name+"')" );
         $('#chatters').append($('<li>').html(" • "+name));
     });
 

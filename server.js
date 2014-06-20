@@ -55,7 +55,7 @@ io.on('connection', function(client) {
             var msglist = msg.split(' ');
             msg = "";
             msglist.forEach(function(text){
-                if(validlink(text)) text = '<a href="'+text+'">'+text+'</a>'
+                if(validlink(text)) text = '<a target="_blank" href="'+text+'">'+text+'</a>'
                 msg += text+' ';
             });
         }
