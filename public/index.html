@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Socket.IO Chat</title>
+    <link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.min.css" />
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body { font: 13px Helvetica, Arial; }
+      #messages{list-style-type:none;padding:0;}
+      #mdiv{margin:auto;height:480px;width:100%;border:1px solid #000;overflow:auto;}
+      #listchatters{font-size:1em;padding:10px;height:480px;width:100%;border:1px solid #000;overflow:auto;}
+      li {padding:5px 10px;}
+      #messages li:nth-child(odd){background:#eee;}
+      #chatters li:nth-child(odd){background:#dfd;}
+      #chatters li:nth-child(even){background:#ddf;}
+      ::-webkit-scrollbar{width:12px;}
+      ::-webkit-scrollbar-track{-webkit-box-shadow:inset 0 0 6px rgba(0,0,0,0.8);border-radius:0px;}
+      ::-webkit-scrollbar-thumb{border-radius:0px;-webkit-box-shadow:inset 0 0 6px rgba(0,0,0,0.8);}
+    </style>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/jquery.min.js"></script>
+    <script src="/client.js"></script>
+  </head>
+  <body>
+    <br><br>
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="col-xs-3"><div id="listchatters"><h4 style="text-align:center;">People Online:</h4><hr><ul id="chatters"></ul></div></div>
+        <div class="col-xs-9">
+          <div id="mdiv">
+            <ul id="messages"></ul>
+          </div>
+          <form role="form" action="">
+            <div class="form-group">
+              <div class="col-xs-12">
+                <div class="col-xs-7">
+                  <input style="font-size:18px;height:32px;width:100%" required id="m" autocomplete="off" />
+                </div>
+                <button class="btn btn-primary">Send</button>
+                <!-- <button id="nick" class="btn btn-warning">Change Nick</button><br> -->
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
