@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-socket.io_chat
+Chat Room
 ==============
 =======
 #Socket.io Chat:

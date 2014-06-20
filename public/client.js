@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    var server = io.connect('192.168.1.121:3000');
+    var server = io.connect('192.168.1.121:3000');  // replace with host and port
     var nickname = 'anonymous';
     $('form').submit(function(){
       server.emit('messages', $('#m').val());

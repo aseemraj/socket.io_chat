@@ -3,7 +3,7 @@ var app = express();
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
 var redis = require('redis');
-var redisClient = redis.createClient();
+var redisClient = redis.createClient(); // arguments host, port, options
 
 var storeMessage = function(name, data){
     var message = JSON.stringify({name: name, data: data});
