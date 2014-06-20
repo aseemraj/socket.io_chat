@@ -13,6 +13,14 @@ var storeMessage = function(name, data){
     // messages.push({name: name, data: data});
     // if(messages.length>20)messages.shift();
 };
+function validlink(text){
+    if(text.indexOf('http://')>-1 || text.indexOf('.com')>-1 || text.indexOf('.co')>-1 ||
+            text.indexOf('.org')>-1 || text.indexOf('.in')>-1 || text.indexOf('.net')>-1 ||
+            text.indexOf('.edu')>-1 || text.indexOf('.gov')>-1 || text.indexOf('.biz')>-1 ||
+            text.indexOf('.mobi')>-1)
+        return true;
+    return false;
+}
 
 app.use(express.static(__dirname + '/public'));
 
@@ -42,6 +50,15 @@ io.on('connection', function(client) {
     });
     client.on('messages', function(msg) {
         console.log(client.nickname+" said: "+msg);
+        if(validlink(msg))
+        {
+            var msglist = msg.split(' ');
+            msg = "";
+            msglist.forEach(function(text){
+                if(validlink(text)) text = '<a href="'+text+'">'+text+'</a>'
+                msg += text+' ';
+            });
+        }
         io.emit('chat', '<b style="color:#0a0;">'+client.nickname + ":</b> "+msg);
         storeMessage(client.nickname, msg);
     });
